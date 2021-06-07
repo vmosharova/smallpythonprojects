@@ -23,9 +23,8 @@ def riversize(matrix):
     for row in range(len(matrix)):
         # look for every single position:
         for column in range(len(matrix[row])):
-            el = matrix[row][column] # current element (1 or 0)
             coordinates = (row, column) # coordinates of the current element
-            if el == 1 and coordinates not in marked:
+            if matrix[row][column] == 1 and coordinates not in marked:
                 marked.add(coordinates)
                 current_river_length = 1
                 stack = [coordinates] #coordinates of the 1s in a current river
@@ -40,7 +39,7 @@ def riversize(matrix):
                             current_river_length += 1
                             stack.append((x, y)) #appends the freshest coordinates to the stack to check its neighbours
 
-            rivers.append(current_river_length)
+                rivers.append(current_river_length)
     return rivers
 
 
@@ -48,13 +47,21 @@ def riversize(matrix):
 def get_neighbours(xyposition, matrix): #looks for the position of the left, right, upper, downer neighbour
     x, y = xyposition #x == rows, y == columns
     neighbors = []
-    if x >= 1: #left neighbour
-        neighbors.append((x - 1, y))
+    if x >= 1:
+        neighbors.append((x - 1, y)) #left neighbour
     if x < (len(matrix) - 1):
-        neighbors.append((x + 1, y))
-    if y >= 1: #left neighbour
-        neighbors.append((x, y - 1))
+        neighbors.append((x + 1, y)) #right neighbour
+    if y >= 1:
+        neighbors.append((x, y - 1)) #upper
     if y < (len(matrix[0]) - 1):
-        neighbors.append((x, y + 1))
+        neighbors.append((x, y + 1)) #downer
 
     return neighbors
+
+print(riversize([
+    [1, 0, 0, 1, 0],
+    [1, 0, 1, 0, 0],
+    [0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1],
+    [1, 0, 1, 1, 0],
+]))
