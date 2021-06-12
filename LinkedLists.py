@@ -48,6 +48,8 @@ linkedlist.insert(1)
 linkedlist.insert(2)
 linkedlist.insert(3)
 print(repr(linkedlist))
+linkedlist.print()
 reverseSinglyLinkedList(linkedlist)
 print(repr(linkedlist))
+linkedlist.print()
 
