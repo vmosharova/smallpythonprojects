@@ -1,32 +1,37 @@
-#Palindrome
+# Palindrome
 
 s = ' lorem ipsum '
 
+
 def simple_reversed(s):
-    return (s[::-1]) #faster approach
+    return (s[::-1])  # faster approach
+
 
 def reversed_with_join(s):
-    return ''.join(reversed(s)) #slower approach
+    return ''.join(reversed(s))  # slower approach
+
 
 print(reversed_with_join(s))
+
 
 def is_palindrome(s):
     new_s = s[::-1]
     return new_s == s
 
-print(is_palindrome(s)) #False
-print(is_palindrome('abcba')) #True
 
+print(is_palindrome(s))  # False
+print(is_palindrome('abcba'))  # True
 
-#Return the string without any whitespace at the beginning or the end
+# Return the string without any whitespace at the beginning or the end
 print(s.strip())
 
-#Convert the value of txt to upper case.
+# Convert the value of txt to upper case.
 s = 'lorem ipsum'
 print(s.upper())
 
-#Make the first letter the upper case letter
+# Make the first letter the upper case letter
 print(s.capitalize())
+
 
 # Write a program to count the number of characters (character frequency) in a string.
 def number_char(s):
@@ -39,4 +44,45 @@ def number_char(s):
             a[i] = 1
     return a
 
+
 print(number_char(s))
+
+
+# Write a Python program to get a string made of the first 2 and the last 2 chars from a given a string.
+# If the string length is less than 2, return the empty string instead
+
+def first2last2chars(s):
+    if len(s) >= 2:
+        return s[:2] + s[-2:]
+    else:
+        return ''
+
+
+print(first2last2chars(s))
+
+
+# Write a Python program to get a string from a given string where all occurrences of its first char have been changed to '$',
+# except the first char itself.
+
+def replace_first_char(s):
+    char = s[0]
+    s = s.replace(char, '$')
+    return char + s[1:]
+
+
+print(replace_first_char('sososos'))
+
+
+#Write a Python program to add 'ing' at the end of a given string (length should be at least 3).
+# If the given string already ends with 'ing' then add 'ly' instead.
+# If the string length of the given string is less than 3, leave it unchanged.
+
+def add_ing(s):
+    if len(s) >= 3:
+        if s[-3:] != 'ing':
+            return s + 'ing'
+        else:
+            return s + 'ly'
+    return s
+
+print(add_ing('abc'))
