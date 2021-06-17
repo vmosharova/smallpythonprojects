@@ -102,3 +102,14 @@ def replace_substring_in_string(s):
     return s
 
 print(replace_substring_in_string('It is not that poor'))
+
+# Write a Python function that takes a list of words and returns the longest word and the length of the longest one.
+
+def longest_word(l):
+    max_word = dict()
+    for word in l:
+        max_word[len(word)] = word
+    return(max(max_word.items()))
+
+print(longest_word(['word', 'exercises', ' ', 'test']))
+
