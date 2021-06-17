@@ -86,3 +86,17 @@ def add_ing(s):
     return s
 
 print(add_ing('abc'))
+
+
+# Write a Python program to find the first appearance of the substring 'not' and 'poor' from a given string,
+# if 'poor' follows the 'not', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string.
+
+def replace_substring_in_string(s):
+    if 'not' in s and 'poor' in s:
+        index_not = s.find('not')
+        index_poor = s.find('poor')
+        if index_poor > index_not:
+            s = s.replace(s[index_not:index_poor], 'good')
+    return s
+
+print(replace_substring_in_string('It is not that poor'))
