@@ -96,7 +96,9 @@ def replace_substring_in_string(s):
         index_not = s.find('not')
         index_poor = s.find('poor')
         if index_poor > index_not:
-            s = s.replace(s[index_not:index_poor], 'good')
+            s = s.replace(s[index_not:(index_poor+4)], 'good')
+        else:
+            return s
     return s
 
 print(replace_substring_in_string('It is not that poor'))
