@@ -113,3 +113,10 @@ def longest_word(l):
 
 print(longest_word(['word', 'exercises', ' ', 'test']))
 
+
+# Write a Python program to remove the nth index character from a nonempty string.
+
+def remove_char(s, n):
+    s = s.replace(s[n], '')
+    return s
+print(remove_char(s, 1))
