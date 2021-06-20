@@ -126,3 +126,10 @@ def remove_char_2(s, n):
     s2 = s[n+1:]
     return s1 + s2
 print(remove_char_2(s, 1))
+
+# Write a Python program to change a given string to a new string where the first and last chars have been exchanged.
+
+def change_1st_and_last_chars(s):
+    return s[-1] + s[1:-1] + s[0]
+
+print(change_1st_and_last_chars(s))
