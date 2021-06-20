@@ -120,3 +120,9 @@ def remove_char(s, n):
     s = s.replace(s[n], '')
     return s
 print(remove_char(s, 1))
+
+def remove_char_2(s, n):
+    s1 = s[:n]
+    s2 = s[n+1:]
+    return s1 + s2
+print(remove_char_2(s, 1))
