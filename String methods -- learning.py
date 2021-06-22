@@ -159,3 +159,20 @@ def remove_odd_index(s):
 print(remove_odd_index(s))
 
 
+# Write a Python program to count the occurrences of each word in a given sentence.
+
+def count_occurrences(s):
+    s = s.replace(',', '').split()
+    occurrences = dict()
+    for word in s:
+        word = word.lower()
+        if word in occurrences:
+            occurrences[word] += 1
+        else:
+            occurrences[word] = 1
+    return occurrences
+
+
+print(count_occurrences('Mayday, mayday, mayday alert'))
+
+
