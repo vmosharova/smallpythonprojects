@@ -73,7 +73,7 @@ def replace_first_char(s):
 print(replace_first_char('sososos'))
 
 
-#Write a Python program to add 'ing' at the end of a given string (length should be at least 3).
+# Write a Python program to add 'ing' at the end of a given string (length should be at least 3).
 # If the given string already ends with 'ing' then add 'ly' instead.
 # If the string length of the given string is less than 3, leave it unchanged.
 
@@ -84,6 +84,7 @@ def add_ing(s):
         else:
             return s + 'ly'
     return s
+
 
 print(add_ing('abc'))
 
@@ -96,12 +97,14 @@ def replace_substring_in_string(s):
         index_not = s.find('not')
         index_poor = s.find('poor')
         if index_poor > index_not:
-            s = s.replace(s[index_not:(index_poor+4)], 'good')
+            s = s.replace(s[index_not:(index_poor + 4)], 'good')
         else:
             return s
     return s
 
+
 print(replace_substring_in_string('It is not that poor'))
+
 
 # Write a Python function that takes a list of words and returns the longest word and the length of the longest one.
 
@@ -109,7 +112,8 @@ def longest_word(l):
     max_word = dict()
     for word in l:
         max_word[len(word)] = word
-    return(max(max_word.items()))
+    return (max(max_word.items()))
+
 
 print(longest_word(['word', 'exercises', ' ', 'test']))
 
@@ -119,17 +123,39 @@ print(longest_word(['word', 'exercises', ' ', 'test']))
 def remove_char(s, n):
     s = s.replace(s[n], '')
     return s
+
+
 print(remove_char(s, 1))
+
 
 def remove_char_2(s, n):
     s1 = s[:n]
-    s2 = s[n+1:]
+    s2 = s[n + 1:]
     return s1 + s2
+
+
 print(remove_char_2(s, 1))
+
 
 # Write a Python program to change a given string to a new string where the first and last chars have been exchanged.
 
 def change_1st_and_last_chars(s):
     return s[-1] + s[1:-1] + s[0]
 
+
 print(change_1st_and_last_chars(s))
+
+
+# Write a Python program to remove the characters which have odd index values of a given string.
+
+def remove_odd_index(s):
+    new_s = ''
+    for i in range(len(s)):
+        if i % 2 != 0:
+            new_s = new_s + s[i]
+    return new_s
+
+
+print(remove_odd_index(s))
+
+
