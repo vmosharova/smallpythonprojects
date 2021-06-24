@@ -43,3 +43,12 @@ def concatenate_dicts(*args):
 
 
 print(concatenate_dicts(dic1, dic2, dic3))
+
+# Write a Python script to check whether a given key already exists in a dictionary.
+
+def key_is_in_dict(d, k):
+    if k in d:
+        return True
+    return False
+
+print(key_is_in_dict(d, 'a'))
