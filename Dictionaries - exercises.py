@@ -44,12 +44,14 @@ def concatenate_dicts(*args):
 
 print(concatenate_dicts(dic1, dic2, dic3))
 
+
 # Write a Python script to check whether a given key already exists in a dictionary.
 
 def key_is_in_dict(d, k):
     if k in d:
         return True
     return False
+
 
 print(key_is_in_dict(d, 'a'))
 
@@ -60,4 +62,18 @@ def return_ditem_dkey_dvalue(d):
     for i, (k, v) in enumerate(d.items()):
         print(i, k, v)
 
+
 print(return_ditem_dkey_dvalue(d))
+
+
+# Write a Python script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x*x).
+# Sample Dictionary for n == 5 :
+# Expected Output : {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+def n_square_as_a_dict(n):
+    d = dict()
+    return {x: x * x for x in range(n)}
+    # Alternative solution without a dict: return list(map(lambda x: x*x, range(0, n + 1)))
+
+
+print(n_square_as_a_dict(5))
