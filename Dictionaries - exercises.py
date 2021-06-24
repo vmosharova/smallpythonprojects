@@ -52,3 +52,12 @@ def key_is_in_dict(d, k):
     return False
 
 print(key_is_in_dict(d, 'a'))
+
+
+# Write a Python program to iterate over dictionaries using for loops returning index, key and value
+
+def return_ditem_dkey_dvalue(d):
+    for i, (k, v) in enumerate(d.items()):
+        print(i, k, v)
+
+print(return_ditem_dkey_dvalue(d))
