@@ -3,26 +3,26 @@
 d = {'a': 5, 'с': 2, 'b': 3}
 
 
-def sorting_dict_by_value_asc(d):
+def sort_dict_by_value_asc(d):
     return sorted(d.values())
 
 
-def sorting_dict_by_value_desc(d):
+def sort_dict_by_value_desc(d):
     return sorted(d.values(), reverse=True)
 
 
-def sorting_dict_by_key_asc(d):
+def sort_dict_by_key_asc(d):
     return sorted(d)
 
 
-def sorting_dict_by_key_desc(d):
+def sort_dict_by_key_desc(d):
     return sorted(d, reverse=True)
 
 
-print(sorting_dict_by_value_asc(d))
-print(sorting_dict_by_value_desc(d))
-print(sorting_dict_by_key_asc(d))
-print(sorting_dict_by_key_desc(d))
+print(sort_dict_by_value_asc(d))
+print(sort_dict_by_value_desc(d))
+print(sort_dict_by_key_asc(d))
+print(sort_dict_by_key_desc(d))
 
 # Write a Python script to add a key to a dictionary.
 
@@ -70,13 +70,13 @@ print(return_ditem_dkey_dvalue(d))
 # Sample Dictionary for n == 5 :
 # Expected Output : {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
-def n_square_as_a_dict(n):
+def square_given_sequence(n):
     d = dict()
     return {x: x * x for x in range(n)}
     # Alternative solution without a dict: return list(map(lambda x: x*x, range(0, n + 1)))
 
 
-print(n_square_as_a_dict(5))
+print(square_given_sequence(5))
 
 # Write a Python program to sum all the items in a dictionary
 
