@@ -91,3 +91,15 @@ def sum_items(d):
 
 print(sum_items(d))
 
+# Write a Python program to multiply all the items in a dictionary
+
+def multiply_items(d):
+    s = 1
+    for key, val in d.items():
+        s = s * key * val
+    return s
+
+print(multiply_items(d))
+
+
+
