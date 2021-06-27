@@ -82,6 +82,7 @@ print(n_square_as_a_dict(5))
 
 d = {1: 2, 3: 4, 5: 6}
 
+
 def sum_items(d):
     s = 0
     for key, val in d.items():
@@ -91,6 +92,7 @@ def sum_items(d):
 
 print(sum_items(d))
 
+
 # Write a Python program to multiply all the items in a dictionary
 
 def multiply_items(d):
@@ -99,7 +101,27 @@ def multiply_items(d):
         s = s * key * val
     return s
 
+
 print(multiply_items(d))
 
 
+# Write a Python program to remove a key from a dictionary
+# It is not possible to delete a key without deleting its value, so here is a solution with None:
 
+def remove_key_but_not_value(d, key):
+    if key in d:
+        d[None] = d[key]
+    return d
+
+
+print(remove_key_but_not_value(d, 1))
+
+
+# ...and here is the solution with deleting both the key and its value:
+
+def remove_key_and_its_value(d, key):
+    d.pop(key)
+    return d
+
+
+print(remove_key_and_its_value(d, 3))
