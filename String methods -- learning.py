@@ -3,15 +3,15 @@
 s = ' lorem ipsum '
 
 
-def simple_reversed(s):
+def reverse_a_string(s):
     return (s[::-1])  # faster approach
 
 
-def reversed_with_join(s):
+def reverse_str_with_join(s):
     return ''.join(reversed(s))  # slower approach
 
 
-print(reversed_with_join(s))
+print(reverse_str_with_join(s))
 
 
 def is_palindrome(s):
@@ -34,7 +34,7 @@ print(s.capitalize())
 
 
 # Write a program to count the number of characters (character frequency) in a string.
-def number_char(s):
+def count_char(s):
     a = dict()
     for i in s:
         keys = a.keys()
@@ -45,20 +45,20 @@ def number_char(s):
     return a
 
 
-print(number_char(s))
+print(count_char(s))
 
 
 # Write a Python program to get a string made of the first 2 and the last 2 chars from a given a string.
 # If the string length is less than 2, return the empty string instead
 
-def first2last2chars(s):
+def print_first2_last2_chars(s):
     if len(s) >= 2:
         return s[:2] + s[-2:]
     else:
         return ''
 
 
-print(first2last2chars(s))
+print(print_first2_last2_chars(s))
 
 
 # Write a Python program to get a string from a given string where all occurrences of its first char have been changed to '$',
@@ -77,7 +77,7 @@ print(replace_first_char('sososos'))
 # If the given string already ends with 'ing' then add 'ly' instead.
 # If the string length of the given string is less than 3, leave it unchanged.
 
-def add_ing(s):
+def add_ing_in_the_end(s):
     if len(s) >= 3:
         if s[-3:] != 'ing':
             return s + 'ing'
@@ -86,7 +86,7 @@ def add_ing(s):
     return s
 
 
-print(add_ing('abc'))
+print(add_ing_in_the_end('abc'))
 
 
 # Write a Python program to find the first appearance of the substring 'not' and 'poor' from a given string,
@@ -108,14 +108,14 @@ print(replace_substring_in_string('It is not that poor'))
 
 # Write a Python function that takes a list of words and returns the longest word and the length of the longest one.
 
-def longest_word(l):
+def find_longest_word(l):
     max_word = dict()
     for word in l:
         max_word[len(word)] = word
     return (max(max_word.items()))
 
 
-print(longest_word(['word', 'exercises', ' ', 'test']))
+print(find_longest_word(['word', 'exercises', ' ', 'test']))
 
 
 # Write a Python program to remove the nth index character from a nonempty string.
@@ -127,14 +127,15 @@ def remove_char(s, n):
 
 print(remove_char(s, 1))
 
+# Second solution:
 
-def remove_char_2(s, n):
+def remove_char(s, n):
     s1 = s[:n]
     s2 = s[n + 1:]
     return s1 + s2
 
 
-print(remove_char_2(s, 1))
+print(remove_char(s, 1))
 
 
 # Write a Python program to change a given string to a new string where the first and last chars have been exchanged.
@@ -174,5 +175,3 @@ def count_occurrences(s):
 
 
 print(count_occurrences('Mayday, mayday, mayday alert'))
-
-
