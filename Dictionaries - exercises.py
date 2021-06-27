@@ -77,3 +77,17 @@ def n_square_as_a_dict(n):
 
 
 print(n_square_as_a_dict(5))
+
+# Write a Python program to sum all the items in a dictionary
+
+d = {1: 2, 3: 4, 5: 6}
+
+def sum_items(d):
+    s = 0
+    for key, val in d.items():
+        s = s + key + val
+    return s
+
+
+print(sum_items(d))
+
