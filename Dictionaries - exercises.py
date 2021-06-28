@@ -125,3 +125,12 @@ def remove_key_and_its_value(d, key):
 
 
 print(remove_key_and_its_value(d, 3))
+
+
+#  Write a Python program to map two lists into a dictionary
+
+def map_lists_into_dict(keys, vals):
+    return dict(zip(keys, vals))
+
+
+print(map_lists_into_dict([1, 2], ['abc', 'def']))
