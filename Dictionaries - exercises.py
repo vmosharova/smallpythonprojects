@@ -134,3 +134,16 @@ def map_lists_into_dict(keys, vals):
 
 
 print(map_lists_into_dict([1, 2], ['abc', 'def']))
+
+
+# Write a Python program to get the maximum and minimum value in a dictionary
+
+d = {'a': 555, 'b': 1, 'c': 33}
+
+def find_min_max(d):
+    k = (lambda vals: d[vals])
+    return d[max(d.keys(), key=k)], d[min(d.keys(), key=k)]
+
+
+
+print(find_min_max(d))
