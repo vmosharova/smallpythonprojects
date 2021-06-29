@@ -145,5 +145,34 @@ def find_min_max(d):
     return d[max(d.keys(), key=k)], d[min(d.keys(), key=k)]
 
 
-
 print(find_min_max(d))
+
+
+# Write a Python program to remove duplicates from a dictionary
+
+d = {'id1':
+   {'name': ['Sara'],
+    'class': ['V'],
+    'subject_integration': ['english, math, science']
+   },
+ 'id2':
+  {'name': ['David'],
+    'class': ['V'],
+    'subject_integration': ['english, math, science']
+   },
+ 'id3':
+    {'name': ['Sara'],
+    'class': ['V'],
+    'subject_integration': ['english, math, science']
+   },
+     }
+
+def remove_duplicates(d):
+    dict_without_duplicates = dict()
+    for key, val in d.items():
+        if val not in dict_without_duplicates.values():
+            dict_without_duplicates[key] = val
+    return dict_without_duplicates
+
+
+print(remove_duplicates(d))
