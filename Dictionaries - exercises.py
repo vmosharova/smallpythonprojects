@@ -135,10 +135,10 @@ def map_lists_into_dict(keys, vals):
 
 print(map_lists_into_dict([1, 2], ['abc', 'def']))
 
-
 # Write a Python program to get the maximum and minimum value in a dictionary
 
 d = {'a': 555, 'b': 1, 'c': 33}
+
 
 def find_min_max(d):
     k = (lambda vals: d[vals])
@@ -147,25 +147,25 @@ def find_min_max(d):
 
 print(find_min_max(d))
 
-
 # Write a Python program to remove duplicates from a dictionary
 
 d = {'id1':
-   {'name': ['Sara'],
-    'class': ['V'],
-    'subject_integration': ['english, math, science']
-   },
- 'id2':
-  {'name': ['David'],
-    'class': ['V'],
-    'subject_integration': ['english, math, science']
-   },
- 'id3':
-    {'name': ['Sara'],
-    'class': ['V'],
-    'subject_integration': ['english, math, science']
-   },
+         {'name': ['Sara'],
+          'class': ['V'],
+          'subject_integration': ['english, math, science']
+          },
+     'id2':
+         {'name': ['David'],
+          'class': ['V'],
+          'subject_integration': ['english, math, science']
+          },
+     'id3':
+         {'name': ['Sara'],
+          'class': ['V'],
+          'subject_integration': ['english, math, science']
+          },
      }
+
 
 def remove_duplicates(d):
     dict_without_duplicates = dict()
@@ -176,3 +176,15 @@ def remove_duplicates(d):
 
 
 print(remove_duplicates(d))
+
+# Write a Python program to check if a dictionary is empty or not.
+
+d1 = dict()
+
+
+def is_dict_empty(d):
+    return ("The dictionary is not empty" if d else "The dictionary is empty")
+
+
+print(is_dict_empty(d))
+print(is_dict_empty(d1))
