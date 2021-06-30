@@ -188,3 +188,15 @@ def is_dict_empty(d):
 
 print(is_dict_empty(d))
 print(is_dict_empty(d1))
+
+# Write a Python program to print all unique values in a list of dictionaries.
+
+lst = [{"V":"S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"}, {"VII":"S005"}, {"V":"S009"},{"VIII":"S007"}]
+
+def print_unique_values(lst):
+    return set(val for d in lst for val in d.values())
+
+
+print(print_unique_values(lst))
+
+
