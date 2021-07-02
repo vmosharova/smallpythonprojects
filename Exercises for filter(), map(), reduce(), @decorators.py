@@ -17,6 +17,10 @@ a = [1, 22, 3, 14, 25, 6, 7]
 a = [i for i in a if i > const]
 print(a)
 
+a = [1, 22, 3, 14, 25, 6, 7]
+a = list(filter(lambda x: x > const, a))
+print(a)
+
 # Задание 3
 # Переписать через reduce
 
