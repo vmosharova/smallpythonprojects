@@ -1,3 +1,5 @@
+from functools import reduce
+
 # Задание 1
 # Переписать в виде генераторов списков
 
@@ -33,6 +35,10 @@ for sentence in sentences:
     cap_count += sentence.count('капитан')
 
 print(cap_count)
+
+a = reduce(lambda x, y: x + (1 if 'капитан' in y else 0), sentences, 0)
+
+print(a)
 
 # Задание 4
 # Самостоятельно написать реализацию функции zip
