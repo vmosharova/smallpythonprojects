@@ -40,8 +40,16 @@ a = reduce(lambda x, y: x + (1 if 'капитан' in y else 0), sentences, 0)
 
 print(a)
 
+
 # Задание 4
 # Самостоятельно написать реализацию функции zip
+
+def zip_implementation(iterable1, iterable2):
+    zip_range = min(len(iterable1), len(iterable2))
+    return [(iterable1[n], iterable2[n]) for n in range(zip_range)]
+
+
+print(zip_implementation([1, 2, 3], ['a', 'b', 'c']))
 
 # Задание 5
 # Переписать код через map, filter, reduce
