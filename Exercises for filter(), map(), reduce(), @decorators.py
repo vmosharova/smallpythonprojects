@@ -72,6 +72,17 @@ if height_count > 0:
     average_height = height_total / height_count
     print(average_height)
 
+people_with_height_data = filter(lambda x: 'рост' in x.keys(), people)
+people_with_height_data = list(people_with_height_data).copy()
+height_count = reduce(lambda x, y: x + 1, people_with_height_data, 0)
+height_total = reduce(lambda x, y: x['рост'] + y['рост'], people_with_height_data)
+try:
+    avg = height_total/height_count
+except ZeroDivisionError:
+    print('Во входных данных не указан рост')
+
+print(avg)
+
 # Задание 6
 # Переписать код с использованием декораторов
 
