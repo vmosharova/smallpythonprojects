@@ -26,7 +26,7 @@ print(a)
 # Задание 3
 # Переписать через reduce
 
-sentences = ['капитан джек воробей',
+sentences = ['капитан капитан джек воробей',
              'капитан дальнего плавания',
              'ваша лодка готова, капитан']
 
@@ -36,7 +36,8 @@ for sentence in sentences:
 
 print(cap_count)
 
-a = reduce(lambda x, y: x + (1 if 'капитан' in y else 0), sentences, 0)
+VALUE_TO_COUNT = 'капитан'
+a = reduce(lambda x, y: x + (y.count(VALUE_TO_COUNT) if VALUE_TO_COUNT in y else 0), sentences, 0)
 
 print(a)
 
@@ -70,40 +71,6 @@ for person in people:
 if height_count > 0:
     average_height = height_total / height_count
     print(average_height)
-
-# Задание 6
-# Переписать код с использованием декораторов
-
-user1 = 'admin'
-user2 = 'Stepan'
-user3 = 'Varya'
-user4 = None
-
-users = [user1, user2, user3, user4]
-
-
-def public_info(user):
-    print('Информацию пытается получить юзер %s' % user)
-    if user is not None:
-        return 'Публичная информация для общего пользования'
-    return 'Пользователь не авторизован'
-
-
-def secret_info(user):
-    print('Информацию пытается получить юзер %s' % user)
-    if user is not None:
-        if user == 'admin':
-            return 'Секретная информация'
-        else:
-            return 'Нет доступа к секретной информации'
-    return 'Пользователь не авторизован'
-
-
-for user in users:
-    print(public_info(user))
-    print('---------')
-    print(secret_info(user))
-    print('---------')
 
 # Задание 6
 # Переписать код с использованием декораторов
