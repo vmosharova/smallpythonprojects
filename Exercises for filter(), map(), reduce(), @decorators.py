@@ -105,3 +105,33 @@ for user in users:
     print('---------')
     print(secret_info(user))
     print('---------')
+
+
+def decorate_user_info(func):
+    def wrapper(*args):
+        print(f'Информацию пытается получить юзер {user}')
+        func(*args)
+        return 'Пользователь не авторизован'
+
+    return wrapper
+
+@decorate_user_info
+def public_info(user):
+    if user is not None:
+        return 'Публичная информация для общего пользования'
+
+@decorate_user_info
+def secret_info(user):
+    if user is not None:
+        if user == 'admin':
+            return 'Секретная информация'
+        else:
+            return 'Нет доступа к секретной информации'
+
+
+for user in users:
+    print(public_info(user))
+    print('---------')
+    print(secret_info(user))
+    print('---------')
+
