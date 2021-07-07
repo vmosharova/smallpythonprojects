@@ -126,18 +126,21 @@ def decorate_user_info(func):
 
     return wrapper
 
+def is_admin(func):
+    def wrapper(*args):
+        func(*args)
+        if user == 'admin':
+            return 'Секретная информация'
+
 @decorate_user_info
+@is_admin
 def public_info(user):
-    if user is not None:
-        return 'Публичная информация для общего пользования'
+    return 'Публичная информация для общего пользования'
 
 @decorate_user_info
 def secret_info(user):
     if user is not None:
-        if user == 'admin':
-            return 'Секретная информация'
-        else:
-            return 'Нет доступа к секретной информации'
+        return 'Нет доступа к секретной информации'
 
 
 for user in users:
