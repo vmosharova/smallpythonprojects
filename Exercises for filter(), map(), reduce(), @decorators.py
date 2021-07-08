@@ -118,29 +118,40 @@ for user in users:
     print('---------')
 
 
-def decorate_user_info(func):
+def is_authorized(func):
     def wrapper(*args):
         print(f'Информацию пытается получить юзер {user}')
-        func(*args)
+        return func(*args)
         return 'Пользователь не авторизован'
 
     return wrapper
 
 def is_admin(func):
     def wrapper(*args):
-        func(*args)
         if user == 'admin':
-            return 'Секретная информация'
+            return func(*args)
+        return 'Нет доступа к секретной информации'
 
-@decorate_user_info
+    return wrapper
+
+def is_not_none(func):
+    def wrapper(*args):
+        return func(*args)
+        return 'Публичная информация для общего пользования'
+
+    return wrapper
+
+@is_authorized
+@is_not_none
 @is_admin
 def public_info(user):
     return 'Публичная информация для общего пользования'
 
-@decorate_user_info
+@is_authorized
+@is_not_none
+@is_admin
 def secret_info(user):
-    if user is not None:
-        return 'Нет доступа к секретной информации'
+    return 'Секретная информация'
 
 
 for user in users:
