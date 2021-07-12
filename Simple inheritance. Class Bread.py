@@ -9,40 +9,43 @@
 
 class Bread:
 
-    def __init__(self, weight, price):
-        self.weight = weight
+    def __init__(self, bread_weight, price):
+        self.bread_weight = bread_weight
         self.price = price
 
     def __repr__(self):
-        return f'The bread weight is {self.weight} and the price is {self.price}'
+        return f'The bread weight is {self.bread_weight} and the price is {self.price}'
 
     def price_for_100g(self):
-        price = (self.price * 100) / self.weight
-        return '100g of product cost ' + str(price)
+        return (self.price * 100) / self.bread_weight
 
 
 class Broetchen(Bread):
 
-    def __init__(self, weight, price, stuffing_weight):
-        Bread.__init__(self, weight, price)
+    def __init__(self, bread_weight, price, stuffing_weight):
+        Bread.__init__(self, bread_weight, price)
         self.stuffing_weight = stuffing_weight
 
     def __repr__(self):
-        return Bread.__repr__(self) + f' and the stuffing weight is {self.stuffing_weight}'
+        return f'The product weight is {self.broetchen_full_weight()} and the stuffing takes {self.stuffing_concentration()}%'
 
     def price_for_100g(self):
-        price = (self.price * 100) / (self.weight + self.stuffing_weight)
-        return '100g of product cost ' + str(price)
+        price = (self.price * 100) / (self.bread_weight + self.stuffing_weight)
+        return price
+
+    def broetchen_full_weight(self):
+        return self.bread_weight + self.stuffing_weight
 
     def stuffing_concentration(self):
-        concentration = (self.stuffing_weight / (self.weight + self.stuffing_weight)) * 100
-        return 'The stuffing concentration is ' + str(concentration) + '%'
+        concentration = (self.stuffing_weight / (self.bread_weight + self.stuffing_weight)) * 100
+        return concentration
 
 bread = Bread(800, 50)
-broetchen = Broetchen(125, 45, 75)
+broetchen = Broetchen(125, 45, 77)
 
 print(bread)
 print(broetchen)
+print(broetchen.broetchen_full_weight())
 print(bread.price_for_100g())
 print(broetchen.price_for_100g())
 print(broetchen.stuffing_concentration())
