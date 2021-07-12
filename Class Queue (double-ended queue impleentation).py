@@ -10,29 +10,27 @@
 
 class Queue:
 
-    allowed_types = [int(), str()]
+    allowed_types = [int, str]
 
     def __init__(self, data_type, items=[]):
         self.data_type = data_type
         self.items = items
-        if not (self.data_type.isalpha() or self.data_type.isdigit()):
+        if self.data_type not in Queue.allowed_types:
             print('Ошибка: тип данных должен быть числом или строкой')
 
-    def __repr__(self):
-        return [i for i in self.items]
+    def print_items(self):
+        print([i for i in self.items])
 
     def check_type(self, data):
         if type(data) not in Queue.allowed_types:
-            return 'Ошибка: тип данных не совпадает с заданным'
+            print('Ошибка: тип данных не совпадает с заданным')
 
     def add_right(self, data):
-        if self.check_type(data):
-            return self.check_type(data)
+        self.check_type(data)
         self.items.append(data)
 
     def add_left(self, data):
-        if self.check_type(data):
-            return self.check_type(data)
+        self.check_type(data)
         self.items.insert(0, data)
 
     def del_right(self):
@@ -40,4 +38,12 @@ class Queue:
 
     def del_left(self):
         del self.items[-1]
+
+queue = Queue(int)
+queue.add_left(1)
+queue.add_left(2)
+queue.add_right(3)
+queue.print_items()
+queue.add_left('Hi')
+queue.print_items()
 
