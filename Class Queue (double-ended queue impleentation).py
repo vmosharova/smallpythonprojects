@@ -8,21 +8,36 @@
 Дальше при попытке добавления в очередь данных, которые не предусмотрены должна выводиться ошибка.
 '''
 
-class Deque:
+class Queue:
 
-    def __init__(self):
-        pass
+    allowed_types = [int(), str()]
+
+    def __init__(self, data_type, items=[]):
+        self.data_type = data_type
+        self.items = items
+        if not (self.data_type.isalpha() or self.data_type.isdigit()):
+            print('Ошибка: тип данных должен быть числом или строкой')
 
     def __repr__(self):
-        pass
+        return [i for i in self.items]
 
-    def addRight(self):
-        pass
+    def check_type(self, data):
+        if type(data) not in Queue.allowed_types:
+            return 'Ошибка: тип данных не совпадает с заданным'
 
-    def addLeft(self):
-        pass
+    def add_right(self, data):
+        if self.check_type(data):
+            return self.check_type(data)
+        self.items.append(data)
 
-    def delElement(self):
-        pass
+    def add_left(self, data):
+        if self.check_type(data):
+            return self.check_type(data)
+        self.items.insert(0, data)
 
+    def del_right(self):
+        del self.items[0]
+
+    def del_left(self):
+        del self.items[-1]
 
