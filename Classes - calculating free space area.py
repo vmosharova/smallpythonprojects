@@ -17,30 +17,30 @@ class Area:
         self.percentage_taken = percentage_taken
 
     def __repr__(self):
-        return f'Free area is {self.area} and taken area is {self.percentage_taken}%'
+        return f'Free area is {round(self.free_space())} and taken area is {round(self.percentage_taken)}%'
 
     def free_space(self):
-        self.area = self.area - (self.area * self.percentage_taken * 0.01)
-        return self.area
+        return self.area - (self.area * self.percentage_taken * 0.01)
 
     def take_space(self, squaremeters):
         if squaremeters <= self.free_space():
             self.percentage_taken = (squaremeters / self.area) * 100
-            self.area = self.area - squaremeters
-            return self.percentage_taken
         else:
             print('Not enough space')
 
-    def make_free_space(self, sqaremeters):
-        self.area = self.free_space() - sqaremeters
-        if self.area >= 0:
-            return self.area
+    def make_free_space(self, squaremeters):
+        squaremeters_in_percent = (squaremeters / self.area) * 100
+        self.percentage_taken = self.percentage_taken - squaremeters_in_percent
+        if self.percentage_taken >= 0:
+            return self.percentage_taken
         else:
-            print(f'Space to be taken ({sqaremeters}) is bigger than free space left {self.area}')
+            print(f'Space to be taken ({squaremeters}) is bigger than free space left {round(self.free_space())}')
 
 a = Area(10)
 a.take_space(3)
-a.take_space(2)
+a.make_free_space(2)
+a.take_space(22)
+a.make_free_space(22)
 print(a)
 
 
