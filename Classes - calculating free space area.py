@@ -24,14 +24,14 @@ class Area:
 
     def take_space(self, squaremeters):
         if squaremeters <= self.free_space():
-            self.percentage_taken = (squaremeters / self.area) * 100
+            self.percentage_taken = self.percentage_taken + (squaremeters / self.area) * 100
         else:
             print('Not enough space')
 
     def make_free_space(self, squaremeters):
         squaremeters_in_percent = (squaremeters / self.area) * 100
-        self.percentage_taken = self.percentage_taken - squaremeters_in_percent
-        if self.percentage_taken >= 0:
+        if (self.percentage_taken - squaremeters_in_percent) >= 0:
+            self.percentage_taken = self.percentage_taken - squaremeters_in_percent
             return self.percentage_taken
         else:
             print(f'Space to be taken ({squaremeters}) is bigger than free space left {round(self.free_space())}')
@@ -39,8 +39,9 @@ class Area:
 a = Area(10)
 a.take_space(3)
 a.make_free_space(2)
-a.take_space(22)
 a.make_free_space(22)
+a.take_space(33)
+a.take_space(4)
 print(a)
 
 
