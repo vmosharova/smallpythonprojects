@@ -31,14 +31,14 @@ class Broetchen(Bread):
 
     def price_for_100g(self):
         price = (self.price * 100) / (self.bread_weight + self.stuffing_weight)
-        return price
+        return round(price)
 
     def broetchen_full_weight(self):
         return self.bread_weight + self.stuffing_weight
 
     def stuffing_concentration(self):
         concentration = (self.stuffing_weight / (self.bread_weight + self.stuffing_weight)) * 100
-        return concentration
+        return round(concentration)
 
 bread = Bread(800, 50)
 broetchen = Broetchen(125, 45, 77)
