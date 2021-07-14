@@ -26,6 +26,20 @@ class MyList:
 
         current.next = node
 
+    def print_reversed(self, pointer=None):
+
+        if pointer is None:
+            pointer = self.first
+
+        print(pointer)
+
+        if pointer.next is None:
+            print(pointer)
+            return
+
+        self.print_reversed(pointer.next)
+        print(pointer)
+
 
 n1 = Node('1')
 n2 = Node('2')
@@ -39,3 +53,5 @@ lst.add(Node('4'))
 lst.add(Node('dfdffd'))
 print(lst.first)
 print(lst.first.next)
+
+lst.print_reversed()
