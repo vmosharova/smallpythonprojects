@@ -117,10 +117,16 @@ for user in users:
     print(secret_info(user))
     print('---------')
 
+def which_user_is_in(func):
+    def wrapper(*args):
+        print(f'Информацию пытается получить юзер {user}')
+        return func(*args)
+
+    return wrapper
+
 
 def is_authorized(func):
     def wrapper(*args):
-        print(f'Информацию пытается получить юзер {user}')
         if user is not None:
            return func(*args)
         else:
@@ -136,20 +142,13 @@ def is_admin(func):
 
     return wrapper
 
-def is_not_none(func):
-    def wrapper(*args):
-        if user is not None:
-            return func(*args)
-
-    return wrapper
-
+@which_user_is_in
 @is_authorized
-@is_not_none
 def public_info(user):
     return 'Публичная информация для общего пользования'
 
+@which_user_is_in
 @is_authorized
-@is_not_none
 @is_admin
 def secret_info(user):
     return 'Секретная информация'
