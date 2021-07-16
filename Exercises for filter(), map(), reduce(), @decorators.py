@@ -52,14 +52,11 @@ def zip_implementation(iterable1, iterable2):
 def zip_implementation_with_args(*args):
     zip_range = min(len(i) for i in args)
     zipped = [[] for i in range(zip_range)]
-    for arg in args:
-        for i in range(zip_range):
-            zipped[i].append(arg[i])
-    return zipped
+    return [[arg[i] for arg in args] for i in range(zip_range)]
 
 
 print(zip_implementation([1, 2, 3], ['a', 'b', 'c']))
-print('ddddddddddddddddd', zip_implementation_with_args([1, 2, 3], ['a', 'b', 'c'], [4, 5, 6]))
+print(zip_implementation_with_args([1, 2, 3], ['a', 'b', 'c'], [4, 5, 6]))
 
 # Задание 5
 # Переписать код через map, filter, reduce
