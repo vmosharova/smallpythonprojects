@@ -1,3 +1,7 @@
+'''Нужно реализовать методы удаления элемента из списка.
+delete_by_index
+delete_by_data'''
+
 class Node:
 
     def __init__(self, data):
@@ -40,6 +44,27 @@ class MyList:
         self.print_reversed(pointer.next)
         print(pointer)
 
+    def delete_by_index(self, index):
+
+        if self.first is None:
+            return
+
+        elif self.first.next is None:
+            self.first = None
+            return
+
+        else:
+            counter = 0
+            current = self.first
+            while counter != index:
+                previous = current
+                current = current.next
+                counter += 1
+            #counter сравнялся с индексом, current = элемент с индексом
+            current.data = None
+            previous.next = current.next
+            current.next = None
+
 
 n1 = Node('1')
 n2 = Node('2')
@@ -53,5 +78,9 @@ lst.add(Node('4'))
 lst.add(Node('dfdffd'))
 print(lst.first)
 print(lst.first.next)
-
+print('xxxxxxxxxx')
 lst.print_reversed()
+print('xxxxxxxxxx')
+lst.delete_by_index(3)
+lst.print_lst()
+
