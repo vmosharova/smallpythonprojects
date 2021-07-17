@@ -65,6 +65,15 @@ class MyList:
             previous.next = current.next
             current.next = None
 
+    def print_lst(self, current=None):
+
+        if current is None:
+            current = self.first
+
+        while current is not None:
+            print(current)
+            current = current.next
+
 
 n1 = Node('1')
 n2 = Node('2')
@@ -82,5 +91,5 @@ print('xxxxxxxxxx')
 lst.print_reversed()
 print('xxxxxxxxxx')
 lst.delete_by_index(3)
+print('xxxxxxxxxx')
 lst.print_lst()
-
