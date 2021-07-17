@@ -2,6 +2,7 @@
 delete_by_index
 delete_by_data'''
 
+
 class Node:
 
     def __init__(self, data):
@@ -44,7 +45,7 @@ class MyList:
         self.print_reversed(pointer.next)
         print(pointer)
 
-    def delete_by_index(self, index):
+    def is_empty_or_len_is_1(self):
 
         if self.first is None:
             return
@@ -53,21 +54,28 @@ class MyList:
             self.first = None
             return
 
-        else:
-            counter = 0
-            current = self.first
-            while counter != index:
-                if current.next is None and index > counter:
-                    print('Введёный индекс больше, чем число элементов в списке')
-                    return
-                else:
-                    previous = current
-                    current = current.next
-                    counter += 1
-            #counter сравнялся с индексом, current = элемент с индексом
-            current.data = None
-            previous.next = current.next
-            current.next = None
+    def delete_by_index(self, index):
+
+        self.is_empty_or_len_is_1()
+
+        counter = 0
+        current = self.first
+        while counter != index:
+            if current.next is None and index > counter:
+                print('Введёный индекс больше, чем число элементов в списке')
+                return
+            else:
+                previous = current
+                current = current.next
+                counter += 1
+        # counter сравнялся с индексом, current = элемент с индексом
+        current.data = None
+        previous.next = current.next
+        current.next = None
+
+    def delete_by_data(self, data):
+
+        self.is_empty_or_len_is_1()
 
     def print_lst(self, current=None):
 
