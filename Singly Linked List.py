@@ -73,9 +73,18 @@ class MyList:
         previous.next = current.next
         current.next = None
 
-    def delete_by_data(self, data):
+    def delete_by_data(self, data_to_find):
 
         self.is_empty_or_len_is_1()
+
+        current = self.first
+        while current.data != data_to_find:
+            previous = current
+            current = current.next
+
+        current.data = None
+        previous.next = current.next
+        current.next = None
 
     def print_lst(self, current=None):
 
@@ -97,6 +106,7 @@ lst.add(n2)
 lst.add(n3)
 lst.add(Node('4'))
 lst.add(Node('dfdffd'))
+lst.add(Node('ABCDEF'))
 print(lst.first)
 print(lst.first.next)
 print('xxxxxxxxxx')
@@ -104,4 +114,7 @@ lst.print_reversed()
 print('xxxxxxxxxx')
 lst.delete_by_index(3)
 print('xxxxxxxxxx')
+lst.print_lst()
+print('xxxxxxxxxx')
+print(lst.delete_by_data('dfdffd'))
 lst.print_lst()
