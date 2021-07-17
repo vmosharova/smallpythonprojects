@@ -57,9 +57,13 @@ class MyList:
             counter = 0
             current = self.first
             while counter != index:
-                previous = current
-                current = current.next
-                counter += 1
+                if current.next is None and index > counter:
+                    print('Введёный индекс больше, чем число элементов в списке')
+                    return
+                else:
+                    previous = current
+                    current = current.next
+                    counter += 1
             #counter сравнялся с индексом, current = элемент с индексом
             current.data = None
             previous.next = current.next
